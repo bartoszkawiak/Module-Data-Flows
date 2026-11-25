@@ -7,15 +7,21 @@ let order = [
   { itemName: "Hash Brown", quantity: 4, unitPricePence: 40 },
 ];
 
-let total = 0;
 function receiptPrint(order) {
+  let total = 0;
+
+  console.log("QTY     ITEM                TOTAL");
+
   for (const { itemName, quantity, unitPricePence } of order) {
     const itemTotal = (quantity * unitPricePence) / 100;
     total += itemTotal;
 
-    console.log(quantity, itemName, itemTotal.toFixed(2));
+    console.log(
+      `${String(quantity).padEnd(8)}${itemName.padEnd(20)}${itemTotal.toFixed(2)}`
+    );
   }
-  console.log(`Total: ${total.toFixed(2)}`);
+
+  console.log(`\nTotal: ${total.toFixed(2)}`);
 }
 
 receiptPrint(order);
